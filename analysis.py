@@ -1,16 +1,13 @@
 from PIL import Image
 
 
-
-def analysis (name, size_qr):
-    image = Image.open(name)  #анализируемое изображение
-    width, height = image.size[0], image.size[1]
+def get_qr_coordinates(img, size_qr):
+    width, height = img.size[0], img.size[1]
     print(width, height)
-    pix = image.load()
-    square_value = -1 
-    layer = -1 # номер слоя, на который будет внедряться код(0 - с, 1 - m и тд)
-    x_qr, y_qr = 0, 0 # координаты x, y для внедрения qr-кода
-    pix = image.load()
+    square_value = -1
+    layer = -1  # номер слоя, на который будет внедряться код(0 - с, 1 - m и тд)
+    x_qr, y_qr = 0, 0  # координаты x, y для внедрения qr-кода
+    pix = img.load()
 
     for i in range(0, width, size_qr):
         for j in range(0, height, size_qr):
@@ -45,4 +42,4 @@ def analysis (name, size_qr):
                         layer = 2
                         x_qr, y_qr = coor_x, coor_y
 
-    return [layer, x_qr, y_qr]
+    return {"layer": layer, "x_qr": x_qr, "y_qr": y_qr}
