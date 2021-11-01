@@ -1,6 +1,6 @@
 # Репозиторий проекта «Маркировка изображений»
 
-# Установка
+## Установка
 
 В проекте используется Anaconda и менеджер пакетов Conda.
 
@@ -8,4 +8,9 @@
 
 `$ conda create --name <env> --file requirements.txt`
 
-Pillow устанавливается через pip, так как в conda для pillow не включен imagingcms, который работает с LittleCMS (lcms2).  
+Pillow устанавливается через pip, так как в conda для pillow не включен imagingcms, который работает с LittleCMS (lcms2).
+
+## TODO
+
+- Изменить принцип поиска qr кода
+- Проверить правильность get_qr_coordinates из analisis.py
